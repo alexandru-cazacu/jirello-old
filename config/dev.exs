@@ -26,7 +26,8 @@ config :jirello, JirelloWeb.Endpoint,
   secret_key_base: "n5CiJl6P5CG85GWZv53KtoMxpOgqHT0T6Fh/eZYZb8HGnpgmD/6AY6fpVPt2KSMa",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]
 
 # ## SSL Support
