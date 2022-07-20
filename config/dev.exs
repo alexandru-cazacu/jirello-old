@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :jirello, Jirello.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "g3BTHdR6Q0IfZX6Z",
   hostname: "localhost",
   database: "jirello_dev",
   stacktrace: true,

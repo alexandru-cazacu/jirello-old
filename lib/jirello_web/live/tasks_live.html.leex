@@ -1,0 +1,10 @@
+<form action="#" phx-submit="add">
+<%= text_input :task, :title, placeholder: "Add Task" %>
+<%= submit "Add", phx_disable_with: "Adding..." %>
+</form>
+
+<ul>
+<%= for task <- @tasks do %>
+    <li><%= task.title %></li>
+<% end %>
+</ul>
