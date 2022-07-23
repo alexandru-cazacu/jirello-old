@@ -8,6 +8,18 @@ defmodule Jirello.Tasks do
 
   alias Jirello.Tasks.Task
 
+  @topic inspect(__MODULE__)
+
+  def subscribe do
+    Phoenix.PubSub.subscribe(Jirello.PubSub, @topic)
+  end
+
+  defp broadcast_change({:ok, result}, event) do
+    Phoenix.PubSub.broadcast(Jirello.PubSub, @topic, {__MODULE__, event, result})
+
+    {:ok, result}
+  end
+
   @doc """
   Returns the list of tasks.
 
@@ -53,6 +65,7 @@ defmodule Jirello.Tasks do
     %Task{}
     |> Task.changeset(attrs)
     |> Repo.insert()
+    |> broadcast_change([:task, :created])
   end
 
   @doc """
@@ -71,6 +84,7 @@ defmodule Jirello.Tasks do
     task
     |> Task.changeset(attrs)
     |> Repo.update()
+    |> broadcast_change([:task, :updated])
   end
 
   @doc """
@@ -86,7 +100,9 @@ defmodule Jirello.Tasks do
 
   """
   def delete_task(%Task{} = task) do
-    Repo.delete(task)
+    task
+    |> Repo.delete()
+    |> broadcast_change([:task, :deleted])
   end
 
   @doc """

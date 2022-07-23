@@ -18,7 +18,7 @@ defmodule JirelloWeb.Router do
     pipe_through :browser
 
     # get "/", PageController, :index
-    live "/", TasksLive, :index
+    live "/projects/:projectName", TasksLive, :index
   end
 
   # Other scopes may use custom stacks.
