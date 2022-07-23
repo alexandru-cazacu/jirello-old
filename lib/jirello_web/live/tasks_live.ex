@@ -15,4 +15,11 @@ defmodule JirelloWeb.TasksLive do
 
     {:noreply, fetch(socket)}
   end
+
+  def handle_event("remove", %{"id" => id}, socket) do
+    task = Tasks.get_task!(id)
+    Tasks.update_task(task, %{done: !task.done})
+
+    {:noreply, fetch(socket)}
+  end
 end
