@@ -1,5 +1,8 @@
 import Config
 
+# Only in tests, remove the complexity from the password hashing algorithm
+config :pbkdf2_elixir, :rounds, 1
+
 # Configure your database
 #
 # The MIX_TEST_PARTITION environment variable can be used
@@ -7,7 +10,7 @@ import Config
 # Run `mix help test` for more information.
 config :jirello, Jirello.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "g3BTHdR6Q0IfZX6Z",
   hostname: "localhost",
   database: "jirello_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
