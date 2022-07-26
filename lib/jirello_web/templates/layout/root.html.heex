@@ -14,8 +14,10 @@
 
 <body class="h-full">
 
-  <%= render "_user_menu.html", assigns %>
-  <%= @inner_content %>
+  <div class="flex">
+    <%= render "_user_menu.html", assigns %>
+    <%= @inner_content %>
+  </div>
 
 </body>
 
