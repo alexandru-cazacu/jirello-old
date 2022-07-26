@@ -2,34 +2,8 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* This file is for your main application CSS */
-
-/* Alerts and form errors used by phx.new */
-.alert {
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-}
-.alert-info {
-  color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
-}
-.alert-warning {
-  color: #8a6d3b;
-  background-color: #fcf8e3;
-  border-color: #faebcc;
-}
-.alert-danger {
-  color: #a94442;
-  background-color: #f2dede;
-  border-color: #ebccd1;
-}
-.alert p {
-  margin-bottom: 0;
-}
-.alert:empty {
+.tw-alert-info:empty,
+.tw-alert-danger:empty {
   display: none;
 }
 .invalid-feedback {
@@ -122,3 +96,14 @@
   100% { opacity: 0; }
 }
 
+.tw-link {
+  @apply text-sm font-medium text-primary-600 hover:underline dark:text-primary-500;
+}
+
+.tw-alert-info {
+  @apply p-4 m-4 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800;
+}
+
+.tw-alert-danger {
+  @apply p-4 m-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800;
+}
