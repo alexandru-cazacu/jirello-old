@@ -1,4 +1,5 @@
-<main class="light flex w-full">
+<main class="border-2 border-red-600">
+  <h1>app.html.heex</h1>
   <p class="tw-alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
   <p class="tw-alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
   <%= @inner_content %>
