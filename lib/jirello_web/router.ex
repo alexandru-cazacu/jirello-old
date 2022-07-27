@@ -21,6 +21,13 @@ defmodule JirelloWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+  end
+
+  # Protected routes
+
+  scope "/", JirelloWeb do
+    pipe_through [:browser, :require_authenticated_user]
+
     live "/projects/:project_name", TasksLive, :index
   end
 

@@ -6,18 +6,18 @@
       <div class="flex justify-start lg:w-0 lg:flex-1">
         <a href="#">
           <span class="sr-only">Jirello</span>
-          <svg class="h-8 w-auto sm:h-10" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 50C100 63.2608 94.7322 75.9785 85.3553 85.3553C75.9785 94.7322 63.2608 100 50 100C36.7392 100 24.0215 94.7322 14.6447 85.3553C5.26785 75.9785 2.00233e-06 63.2608 0 50L25 50C25 56.6304 27.6339 62.9893 32.3223 67.6777C37.0107 72.3661 43.3696 75 50 75C56.6304 75 62.9893 72.3661 67.6777 67.6777C72.3661 62.9893 75 56.6304 75 50H100Z" fill="#EA005E"/>
-            <path d="M75 12.5C75 5.59644 80.5964 0 87.5 0V0C94.4036 0 100 5.59644 100 12.5V50H75V12.5Z" fill="#EA005E"/>
-            <path d="M0 47.5C0 40.5964 5.59644 35 12.5 35V35C19.4036 35 25 40.5964 25 47.5V50H0V47.5Z" fill="#EA005E"/>
-            <circle cx="50" cy="50" r="15" fill="#EA005E"/>
+          <svg class="h-8 w-auto sm:h-10 text-primary-600" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 50C100 63.2608 94.7322 75.9785 85.3553 85.3553C75.9785 94.7322 63.2608 100 50 100C36.7392 100 24.0215 94.7322 14.6447 85.3553C5.26785 75.9785 2.00233e-06 63.2608 0 50L25 50C25 56.6304 27.6339 62.9893 32.3223 67.6777C37.0107 72.3661 43.3696 75 50 75C56.6304 75 62.9893 72.3661 67.6777 67.6777C72.3661 62.9893 75 56.6304 75 50H100Z"/>
+            <path d="M75 12.5C75 5.59644 80.5964 0 87.5 0V0C94.4036 0 100 5.59644 100 12.5V50H75V12.5Z"/>
+            <path d="M0 47.5C0 40.5964 5.59644 35 12.5 35V35C19.4036 35 25 40.5964 25 47.5V50H0V47.5Z"/>
+            <circle cx="50" cy="50" r="15"/>
           </svg>
 
 
         </a>
       </div>
       <div class="-mr-2 -my-2 md:hidden">
-        <button @click="_openMobile = true" @click.outside="_openMobile = false" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-pink-500" aria-expanded="false">
+        <button @click="_openMobile = true" @click.outside="_openMobile = false" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500" aria-expanded="false">
           <span class="sr-only">Open menu</span>
           <!-- Heroicon name: outline/menu -->
           <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -28,7 +28,7 @@
       <nav class="hidden md:flex space-x-10">
         <div class="relative">
           <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
-          <button @click="_openSolutions = true" @click.outside="_openSolutions = false" type="button" class="text-gray-500 group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500" aria-expanded="false">
+          <button @click="_openSolutions = true" @click.outside="_openSolutions = false" type="button" class="text-gray-500 group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500" aria-expanded="false">
             <span>Solutions</span>
             <!--
               Heroicon name: solid/chevron-down
@@ -62,7 +62,7 @@
               <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                 <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
                   <!-- Heroicon name: outline/chart-bar -->
-                  <svg class="flex-shrink-0 h-6 w-6 text-pink-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <svg class="flex-shrink-0 h-6 w-6 text-primary-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
                   <div class="ml-4">
@@ -73,7 +73,7 @@
 
                 <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
                   <!-- Heroicon name: outline/cursor-click -->
-                  <svg class="flex-shrink-0 h-6 w-6 text-pink-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <svg class="flex-shrink-0 h-6 w-6 text-primary-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
                   </svg>
                   <div class="ml-4">
@@ -84,7 +84,7 @@
 
                 <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
                   <!-- Heroicon name: outline/shield-check -->
-                  <svg class="flex-shrink-0 h-6 w-6 text-pink-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <svg class="flex-shrink-0 h-6 w-6 text-primary-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                   <div class="ml-4">
@@ -95,7 +95,7 @@
 
                 <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
                   <!-- Heroicon name: outline/view-grid -->
-                  <svg class="flex-shrink-0 h-6 w-6 text-pink-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <svg class="flex-shrink-0 h-6 w-6 text-primary-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                   </svg>
                   <div class="ml-4">
@@ -106,7 +106,7 @@
 
                 <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
                   <!-- Heroicon name: outline/refresh -->
-                  <svg class="flex-shrink-0 h-6 w-6 text-pink-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <svg class="flex-shrink-0 h-6 w-6 text-primary-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                   </svg>
                   <div class="ml-4">
@@ -146,7 +146,7 @@
 
         <div class="relative">
           <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
-          <button @click="_openMore = true" @click.outside="_openMore = false" type="button" class="text-gray-500 group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500" aria-expanded="false">
+          <button @click="_openMore = true" @click.outside="_openMore = false" type="button" class="text-gray-500 group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500" aria-expanded="false">
             <span>More</span>
             <!--
               Heroicon name: solid/chevron-down
@@ -173,7 +173,7 @@
               <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                 <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
                   <!-- Heroicon name: outline/support -->
-                  <svg class="flex-shrink-0 h-6 w-6 text-pink-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <svg class="flex-shrink-0 h-6 w-6 text-primary-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
                   <div class="ml-4">
@@ -184,7 +184,7 @@
 
                 <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
                   <!-- Heroicon name: outline/bookmark-alt -->
-                  <svg class="flex-shrink-0 h-6 w-6 text-pink-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <svg class="flex-shrink-0 h-6 w-6 text-primary-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                   <div class="ml-4">
@@ -195,7 +195,7 @@
 
                 <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
                   <!-- Heroicon name: outline/calendar -->
-                  <svg class="flex-shrink-0 h-6 w-6 text-pink-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <svg class="flex-shrink-0 h-6 w-6 text-primary-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                   <div class="ml-4">
@@ -206,7 +206,7 @@
 
                 <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
                   <!-- Heroicon name: outline/shield-check -->
-                  <svg class="flex-shrink-0 h-6 w-6 text-pink-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <svg class="flex-shrink-0 h-6 w-6 text-primary-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                   <div class="ml-4">
@@ -233,7 +233,7 @@
                   </ul>
                 </div>
                 <div class="mt-5 text-sm">
-                  <a href="#" class="font-medium text-pink-600 hover:text-pink-500"> View all posts <span aria-hidden="true">&rarr;</span></a>
+                  <a href="#" class="font-medium text-primary-600 hover:text-primary-500"> View all posts <span aria-hidden="true">&rarr;</span></a>
                 </div>
               </div>
             </div>
@@ -242,9 +242,9 @@
       </nav>
       <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
         <%= link "Log in", to: Routes.user_session_path(@conn, :new), class: "whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900" %>
-        <%= link "Register", to: Routes.user_registration_path(@conn, :new), class: "ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-pink-600 hover:bg-pink-700" %>
+        <%= link "Register", to: Routes.user_registration_path(@conn, :new), class: "ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary-600 hover:bg-primary-700" %>
         <%# <a href="#" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"> Sign in </a> %>
-        <%# <a href="#" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-pink-600 hover:bg-pink-700"> Sign up </a> %>
+        <%# <a href="#" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary-600 hover:bg-primary-700"> Register </a> %>
       </div>
     </div>
   </div>
@@ -264,10 +264,10 @@
       <div class="pt-5 pb-6 px-5">
         <div class="flex items-center justify-between">
           <div>
-            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-pink-600.svg" alt="Workflow">
+            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-primary-600.svg" alt="Workflow">
           </div>
           <div class="-mr-2">
-            <button @click="_openMobile = false" @click.outside="_openMobile = false" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-pink-500">
+            <button @click="_openMobile = false" @click.outside="_openMobile = false" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500">
               <span class="sr-only">Close menu</span>
               <!-- Heroicon name: outline/x -->
               <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -280,7 +280,7 @@
           <nav class="grid gap-y-8">
             <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
               <!-- Heroicon name: outline/chart-bar -->
-              <svg class="flex-shrink-0 h-6 w-6 text-pink-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <svg class="flex-shrink-0 h-6 w-6 text-primary-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
               </svg>
               <span class="ml-3 text-base font-medium text-gray-900"> Analytics </span>
@@ -288,7 +288,7 @@
 
             <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
               <!-- Heroicon name: outline/cursor-click -->
-              <svg class="flex-shrink-0 h-6 w-6 text-pink-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <svg class="flex-shrink-0 h-6 w-6 text-primary-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
               </svg>
               <span class="ml-3 text-base font-medium text-gray-900"> Engagement </span>
@@ -296,7 +296,7 @@
 
             <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
               <!-- Heroicon name: outline/shield-check -->
-              <svg class="flex-shrink-0 h-6 w-6 text-pink-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <svg class="flex-shrink-0 h-6 w-6 text-primary-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
               <span class="ml-3 text-base font-medium text-gray-900"> Security </span>
@@ -304,7 +304,7 @@
 
             <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
               <!-- Heroicon name: outline/view-grid -->
-              <svg class="flex-shrink-0 h-6 w-6 text-pink-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <svg class="flex-shrink-0 h-6 w-6 text-primary-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
               </svg>
               <span class="ml-3 text-base font-medium text-gray-900"> Integrations </span>
@@ -312,7 +312,7 @@
 
             <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
               <!-- Heroicon name: outline/refresh -->
-              <svg class="flex-shrink-0 h-6 w-6 text-pink-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <svg class="flex-shrink-0 h-6 w-6 text-primary-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
               </svg>
               <span class="ml-3 text-base font-medium text-gray-900"> Automations </span>
@@ -335,10 +335,10 @@
           <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700"> Security </a>
         </div>
         <div>
-          <a href="#" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-pink-600 hover:bg-pink-700"> Sign up </a>
+          <a href="#" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary-600 hover:bg-primary-700"> Register </a>
           <p class="mt-6 text-center text-base font-medium text-gray-500">
             Existing customer?
-            <a href="#" class="text-pink-600 hover:text-pink-500"> Sign in </a>
+            <a href="#" class="text-primary-600 hover:text-primary-500"> Sign in </a>
           </p>
         </div>
       </div>
@@ -364,15 +364,15 @@
         <div class="sm:text-center lg:text-left">
           <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
             <span class="block xl:inline">Data to enrich your</span>
-            <span class="block text-pink-600 xl:inline">online business</span>
+            <span class="block text-primary-600 xl:inline">online business</span>
           </h1>
           <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
           <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
             <div class="rounded-md shadow">
-              <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-pink-600 hover:bg-pink-700 md:py-4 md:text-lg md:px-10"> Get started </a>
+              <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 md:py-4 md:text-lg md:px-10"> Get started </a>
             </div>
             <div class="mt-3 sm:mt-0 sm:ml-3">
-              <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-pink-700 bg-pink-100 hover:bg-pink-200 md:py-4 md:text-lg md:px-10"> Live demo </a>
+              <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary-700 bg-primary-100 hover:bg-primary-200 md:py-4 md:text-lg md:px-10"> Live demo </a>
             </div>
           </div>
         </div>
@@ -413,7 +413,7 @@
 <div class="py-12 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="lg:text-center">
-      <h2 class="text-base text-pink-600 font-semibold tracking-wide uppercase">Transactions</h2>
+      <h2 class="text-base text-primary-600 font-semibold tracking-wide uppercase">Transactions</h2>
       <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">A better way to send money</p>
       <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.</p>
     </div>
@@ -422,7 +422,7 @@
       <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
         <div class="relative">
           <dt>
-            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-pink-500 text-white">
+            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
               <!-- Heroicon name: outline/globe-alt -->
               <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
@@ -435,7 +435,7 @@
 
         <div class="relative">
           <dt>
-            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-pink-500 text-white">
+            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
               <!-- Heroicon name: outline/scale -->
               <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
@@ -448,7 +448,7 @@
 
         <div class="relative">
           <dt>
-            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-pink-500 text-white">
+            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
               <!-- Heroicon name: outline/lightning-bolt -->
               <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -461,7 +461,7 @@
 
         <div class="relative">
           <dt>
-            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-pink-500 text-white">
+            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
               <!-- Heroicon name: outline/annotation -->
               <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
@@ -487,14 +487,14 @@
   <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
     <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
       <span class="block">Ready to dive in?</span>
-      <span class="block text-pink-600">Start your free trial today.</span>
+      <span class="block text-primary-600">Start your free trial today.</span>
     </h2>
     <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
       <div class="inline-flex rounded-md shadow">
-        <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-pink-600 hover:bg-pink-700"> Get started </a>
+        <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700"> Get started </a>
       </div>
       <div class="ml-3 inline-flex rounded-md shadow">
-        <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-pink-600 bg-white hover:bg-pink-50"> Learn more </a>
+        <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-primary-600 bg-white hover:bg-primary-50"> Learn more </a>
       </div>
     </div>
   </div>
