@@ -1,12 +1,25 @@
-<h1>Confirm account</h1>
-
-<.form let={_f} for={:user} action={Routes.user_confirmation_path(@conn, :update, @token)}>
-  <div>
-    <%= submit "Confirm my account" %>
+<div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <svg class="mx-auto h-12 w-auto text-primary-600"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
+      <path d="M100 50C100 63.2608 94.7322 75.9785 85.3553 85.3553C75.9785 94.7322 63.2608 100 50 100C36.7392 100 24.0215 94.7322 14.6447 85.3553C5.26785 75.9785 2.00233e-06 63.2608 0 50L25 50C25 56.6304 27.6339 62.9893 32.3223 67.6777C37.0107 72.3661 43.3696 75 50 75C56.6304 75 62.9893 72.3661 67.6777 67.6777C72.3661 62.9893 75 56.6304 75 50H100Z"/>
+      <path d="M75 12.5C75 5.59644 80.5964 0 87.5 0V0C94.4036 0 100 5.59644 100 12.5V50H75V12.5Z"/>
+      <path d="M0 47.5C0 40.5964 5.59644 35 12.5 35V35C19.4036 35 25 40.5964 25 47.5V50H0V47.5Z"/>
+      <circle cx="50" cy="50" r="15"/>
+    </svg>
+    <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Confirm account</h2>
   </div>
-</.form>
 
-<p>
-  <%= link "Register", to: Routes.user_registration_path(@conn, :new) %> |
-  <%= link "Log in", to: Routes.user_session_path(@conn, :new) %>
-</p>
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+      <.form let={_f} for={:user} action={Routes.user_confirmation_path(@conn, :update, @token)}>
+        <%= submit "Confirm my account", class: "w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500" %>
+      </.form>
+    </div>
+
+    <p class="mt-8 text-center text-sm text-gray-600">
+      <%= link "Log In", to: Routes.user_session_path(@conn, :new), class: "font-medium text-primary-600 hover:text-primary-500" %>
+      or
+      <%= link "Register", to: Routes.user_registration_path(@conn, :new), class: "font-medium text-primary-600 hover:text-primary-500" %>
+    </p>
+  </div>
+</div>

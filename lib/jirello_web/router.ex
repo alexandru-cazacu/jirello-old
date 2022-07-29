@@ -17,21 +17,24 @@ defmodule JirelloWeb.Router do
     plug :accepts, ["json"]
   end
 
+  # Set the layout for when a user registers or signs in
+  pipeline :session_layout do
+    plug :put_root_layout, {JirelloWeb.LayoutView, :session}
+  end
+
   scope "/", JirelloWeb do
     pipe_through :browser
 
-    # get "/", PageController, :index
-    # get "/", ProjectController, :index
+    get "/", PageController, :index
   end
 
   # Protected routes
 
-  scope "/", JirelloWeb do
-    pipe_through [:browser, :require_authenticated_user]
+  scope "/app", JirelloWeb do
+    pipe_through [:browser, :session_layout, :require_authenticated_user]
 
-    live "/tasks", TasksLive, :index
-    get "/", ProjectController, :index
-    resources "/projects", ProjectController
+    live "/", TasksLive, :index
+    # resources "/app/projects", ProjectController
   end
 
   # Other scopes may use custom stacks.
