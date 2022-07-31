@@ -34,6 +34,31 @@ defmodule Jirello.Tasks do
   end
 
   @doc """
+  Returns the list of tasks matching the given `criteria`.
+
+  ## Example
+
+    [
+      paginate: %{page: 2, per_page: 5},
+      sort: %{sort_by: :item, sort_order: :asc}
+    ]
+  """
+  def list_tasks(criteria) when is_list(criteria) do
+    query = from(t in Task)
+
+    Enum.reduce(criteria, query, fn
+      {:paginate, %{page: page, per_page: per_page}}, query ->
+        from q in query,
+          offset: ^((page - 1) * per_page),
+          limit: ^per_page
+
+      {:sort, %{sort_by: sort_by, sort_order: sort_order}}, query ->
+        from q in query, order_by: [{^sort_order, ^sort_by}]
+    end)
+    |> Repo.all()
+  end
+
+  @doc """
   Gets a single task.
 
   Raises `Ecto.NoResultsError` if the Task does not exist.

@@ -12,9 +12,7 @@
   <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
-<body class="h-full overflow-hidden border-2 border-red-500">
-  <%# <h1>/layout/session.html.heex</h1> %>
-
+<body class="h-full overflow-hidden">
   <div class="flex h-full flex-col">
   <!-- Top nav-->
   <header class="relative flex h-16 flex-shrink-0 items-center bg-white">
@@ -74,7 +72,7 @@
               <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
             </svg>
           </div>
-          <input type="text" name="search" id="search" placeholder="Search anything..." class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md" placeholder="you@example.com">
+          <input type="text" name="search" id="search" placeholder="Search anything..." class="focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md" placeholder="you@company.com">
           <div class="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
             <kbd class="inline-flex items-center border border-gray-200 rounded px-2 text-sm font-sans font-medium text-gray-400"> ⌘K </kbd>
           </div>
@@ -126,8 +124,8 @@
     </div>
 
     <!-- Mobile menu, show/hide this `div` based on menu open/closed state -->
-
-    <div class="relative z-40 md:hidden" role="dialog" aria-modal="true">
+    <!-- TODO(alex): Remove hidden and fix -->
+    <div class="relative z-40 md:hidden hidden" role="dialog" aria-modal="true">
       <!--
         Off-canvas menu backdrop, show/hide based on off-canvas menu state.
 
@@ -216,6 +214,14 @@
     <!-- Narrow sidebar-->
     <nav aria-label="Sidebar" class="hidden md:block md:flex-shrink-0 md:overflow-y-auto md:bg-gray-800">
       <div class="relative flex w-20 flex-col space-y-3 p-3">
+        <a href="#" class="text-gray-400 hover:bg-gray-700 flex-shrink-0 inline-flex items-center justify-center h-14 w-14 rounded-lg">
+          <span class="sr-only">Documents</span>
+          <!-- Heroicon name: outline/document-home -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+        </a>
+
         <a href="#" class="bg-gray-900 text-white flex-shrink-0 inline-flex items-center justify-center h-14 w-14 rounded-lg">
           <span class="sr-only">Tasks</span>
           <!-- Heroicon name: outline/view-boards -->
@@ -256,19 +262,19 @@
       <!-- Primary column -->
       <section aria-labelledby="primary-heading" class="flex h-full min-w-0 flex-1 flex-col overflow-y-auto lg:order-last">
         <h1 id="primary-heading" class="sr-only">Home</h1>
-          <p class="tw-alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-          <p class="tw-alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+          <p class="TODO" role="alert"><%= get_flash(@conn, :info) %></p>
+          <p class="TODO" role="alert"><%= get_flash(@conn, :error) %></p>
           <%= @inner_content %>
         <!-- Your content -->
       </section>
 
       <!-- Secondary column (hidden on smaller screens) -->
-      <aside class="hidden lg:order-first lg:block lg:flex-shrink-0">
+      <%# <aside class="hidden lg:order-first lg:block lg:flex-shrink-0">
         <div class="relative flex h-full w-96 flex-col overflow-y-auto border-r border-gray-200 bg-gray-100">
           <!-- Your content -->
           <h1>TODO</h1>
         </div>
-      </aside>
+      </aside> %>
     </main>
   </div>
 </div>

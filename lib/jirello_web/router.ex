@@ -33,7 +33,7 @@ defmodule JirelloWeb.Router do
   scope "/app", JirelloWeb do
     pipe_through [:browser, :session_layout, :require_authenticated_user]
 
-    live "/", TasksLive, :index
+    live "/", TasksLive
     # resources "/app/projects", ProjectController
   end
 
