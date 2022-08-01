@@ -1,4 +1,6 @@
 defmodule Jirello.Accounts.UserNotifier do
+  @moduledoc false
+
   import Swoosh.Email
 
   alias Jirello.Mailer

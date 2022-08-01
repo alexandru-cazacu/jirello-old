@@ -82,7 +82,9 @@
       <div class="ml-10 flex flex-shrink-0 items-center space-x-10 pr-4">
         <nav aria-label="Global" class="flex space-x-10">
           <a href="#" class="text-sm font-medium text-gray-900">Inboxes</a>
+          <%= link "Projects", to: Routes.project_path(@conn, :index), class: "text-sm font-medium text-gray-900" %>
           <%= link "Settings", to: Routes.user_settings_path(@conn, :edit), class: "text-sm font-medium text-gray-900" %>
+          <%= link "Log out", to: Routes.user_session_path(@conn, :delete), method: :delete, class: "text-sm font-medium text-gray-900" %>
         </nav>
         <div class="flex items-center space-x-8">
           <span class="inline-flex">

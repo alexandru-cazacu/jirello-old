@@ -10,7 +10,7 @@ config :pbkdf2_elixir, :rounds, 1
 # Run `mix help test` for more information.
 config :jirello, Jirello.Repo,
   username: "postgres",
-  password: "g3BTHdR6Q0IfZX6Z",
+  password: "postgres",
   hostname: "localhost",
   database: "jirello_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,

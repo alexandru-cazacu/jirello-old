@@ -6,7 +6,7 @@ defmodule Jirello.Accounts do
   import Ecto.Query, warn: false
   alias Jirello.Repo
 
-  alias Jirello.Accounts.{User, UserToken, UserNotifier}
+  alias Jirello.Accounts.{User, UserNotifier, UserToken}
 
   ## Database getters
 

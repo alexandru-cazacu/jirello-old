@@ -14,6 +14,10 @@ defmodule Jirello.Tasks do
     Phoenix.PubSub.subscribe(Jirello.PubSub, @topic)
   end
 
+  defp broadcast_change({:error, changeset}, _event) do
+    {:error, changeset}
+  end
+
   defp broadcast_change({:ok, result}, event) do
     Phoenix.PubSub.broadcast(Jirello.PubSub, @topic, {__MODULE__, event, result})
 

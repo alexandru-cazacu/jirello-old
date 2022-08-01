@@ -52,7 +52,8 @@ defmodule JirelloWeb.TasksLive do
     {:noreply, fetch(socket)}
   end
 
-  # TODO(alex): Mismatch between fetch and handle params. When completing a task sorting by title the page refresh in a weird way.
+  # TODO(alex): Mismatch between fetch and handle params. When completing a task sorting by title the page refresh in a
+  # weird way.
 
   def handle_params(params, _url, socket) do
     page = String.to_integer(params["page"] || "1")

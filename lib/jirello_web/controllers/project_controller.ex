@@ -1,6 +1,5 @@
 defmodule JirelloWeb.ProjectController do
   use JirelloWeb, :controller
-  import Phoenix.LiveView.Helpers
 
   alias Jirello.Projects
   alias Jirello.Projects.Project

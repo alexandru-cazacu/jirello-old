@@ -34,7 +34,7 @@ defmodule JirelloWeb.Router do
     pipe_through [:browser, :session_layout, :require_authenticated_user]
 
     live "/", TasksLive
-    # resources "/app/projects", ProjectController
+    resources "/projects", ProjectController
   end
 
   # Other scopes may use custom stacks.

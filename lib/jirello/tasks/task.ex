@@ -1,4 +1,6 @@
 defmodule Jirello.Tasks.Task do
+  @moduledoc false
+
   use Ecto.Schema
   import Ecto.Changeset
 

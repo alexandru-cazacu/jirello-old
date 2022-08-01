@@ -1,7 +1,9 @@
 defmodule JirelloWeb.ProjectControllerTest do
-  use JirelloWeb.ConnCase
+  use JirelloWeb.ConnCase, async: true
 
   import Jirello.ProjectsFixtures
+
+  setup :register_and_log_in_user
 
   @create_attrs %{title: "some title"}
   @update_attrs %{title: "some updated title"}
@@ -10,7 +12,7 @@ defmodule JirelloWeb.ProjectControllerTest do
   describe "index" do
     test "lists all projects", %{conn: conn} do
       conn = get(conn, Routes.project_path(conn, :index))
-      assert html_response(conn, 200) =~ "Listing Projects"
+      assert html_response(conn, 200) =~ ">Projects</h1>"
     end
   end
 
