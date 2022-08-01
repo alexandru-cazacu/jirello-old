@@ -1,5 +1,7 @@
 # Jirello
 
+[![Test](https://github.com/alexandru-cazacu/jirello/actions/workflows/test.yaml/badge.svg?branch=master)](https://github.com/alexandru-cazacu/jirello/actions/workflows/test.yaml)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
