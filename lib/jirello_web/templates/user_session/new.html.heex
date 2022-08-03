@@ -59,7 +59,7 @@
             </div>
               <%= password_input f, :password,
                 autocomplete: "current-password",
-                placeholder: "••••••••",
+                placeholder: "••••••••••••",
                 required: true,
                 class: "focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md" %>
           </div>
@@ -81,7 +81,7 @@
       </.form>
     </div>
 
-    <p class="mt-8 text-center text-sm text-gray-600">
+    <p class="mt-6 text-center text-sm text-gray-600">
       Don't have an account?
       <%= link "Register", to: Routes.user_registration_path(@conn, :new), class: "font-medium text-primary-600 hover:text-primary-500" %>
     </p>
