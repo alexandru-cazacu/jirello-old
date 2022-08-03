@@ -26,6 +26,7 @@ defmodule JirelloWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/open", StatsController, :index
   end
 
   # Protected routes

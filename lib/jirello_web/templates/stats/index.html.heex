@@ -1,0 +1,84 @@
+<h1>TODO navbar</h1>
+
+<div class="mt-10 pb-12 sm:pb-16">
+  <div class="relative">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Public Metrics</h2>
+        <p class="mt-3 text-xl text-gray-500 sm:mt-4">Jirello's public metrics updated in realtime.</p>
+      </div>
+
+      <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
+        <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+          <dt class="text-sm font-medium text-gray-500 truncate">Users</dt>
+          <dd class="mt-1 text-3xl font-semibold text-gray-900"><%= @users %></dd>
+        </div>
+
+        <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+          <dt class="text-sm font-medium text-gray-500 truncate">-</dt>
+          <dd class="mt-1 text-3xl font-semibold text-gray-900">-</dd>
+        </div>
+
+        <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+          <dt class="text-sm font-medium text-gray-500 truncate">-</dt>
+          <dd class="mt-1 text-3xl font-semibold text-gray-900">-</dd>
+        </div>
+      </dl>
+
+      <div class="bg-white overflow-hidden shadow rounded-lg mt-5">
+        <div class="px-4 py-5 sm:p-6">
+          <dt class="text-sm font-medium text-gray-500 truncate">Github Commit Activity</dt>
+          <img alt="Alexandru's Github chart" src="https://ghchart.rshah.org/alexandru-cazacu"
+            class="block w-full mt-4">
+        </div>
+      </div>
+
+      <dl class="mt-5">
+        <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+          <dt class="text-sm font-medium text-gray-500 truncate">Users (TODO)</dt>
+          <canvas id="usersChart" width="1200" height="400" class="mt-4"></canvas>
+        </div>
+      </dl>
+
+      <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+          const ctx = document.getElementById('usersChart').getContext('2d');
+          const usersChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+              datasets: [{
+                label: '# of Votes',
+                data: [2, 5, 20, 25, 122, 300],
+                backgroundColor: [
+                  'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                ],
+              }]
+            },
+            options: {
+              plugins: {
+                legend: {
+                  display: false
+                },
+              },
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+        });
+      </script>
+
+      <h1>TODO Charts</h1>
+      <h1>TODO Various metrics</h1>
+      <h1>TODO blog post about MRR</h1>
+      <h1>TODO mailing list</h1>
+      <h1>TODO footer</h1>
+    </div>
+  </div>
+</div>

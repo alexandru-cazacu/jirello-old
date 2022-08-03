@@ -19,6 +19,7 @@
     <!-- Logo area -->
     <div class="absolute inset-y-0 left-0 md:static md:flex-shrink-0">
       <a href="#" class="flex h-16 w-16 items-center justify-center bg-primary-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-600 md:w-20">
+        <!-- App icon -->
         <svg class="h-8 w-auto text-white" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path d="M100 50C100 63.2608 94.7322 75.9785 85.3553 85.3553C75.9785 94.7322 63.2608 100 50 100C36.7392 100 24.0215 94.7322 14.6447 85.3553C5.26785 75.9785 2.00233e-06 63.2608 0 50L25 50C25 56.6304 27.6339 62.9893 32.3223 67.6777C37.0107 72.3661 43.3696 75 50 75C56.6304 75 62.9893 72.3661 67.6777 67.6777C72.3661 62.9893 75 56.6304 75 50H100Z"/>
             <path d="M75 12.5C75 5.59644 80.5964 0 87.5 0V0C94.4036 0 100 5.59644 100 12.5V50H75V12.5Z"/>
@@ -64,7 +65,7 @@
           <%= link "Projects", to: Routes.project_path(@conn, :index), class: "text-sm font-medium text-gray-900" %>
         </nav>
         <div class="flex items-center space-x-8">
-          <span class="inline-flex">
+          <%# <span class="inline-flex">
             <a href="#" class="-mx-1 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500">
               <span class="sr-only">View notifications</span>
               <!-- Heroicon name: outline/bell -->
@@ -72,7 +73,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
               </svg>
             </a>
-          </span>
+          </span> %>
 
           <div class="relative inline-block text-left">
             <button
@@ -83,7 +84,7 @@
               aria-expanded="false"
               aria-haspopup="true">
               <span class="sr-only">Open user menu</span>
-              <%= gravatar(@current_user.email, "h-8 w-8 rounded-full") %>
+              <%= Gravatar.gravatar(@current_user.email, "h-8 w-8 rounded-full") %>
             </button>
 
             <div
@@ -144,6 +145,7 @@
           class="fixed inset-0 z-40 h-full w-full bg-white sm:inset-y-0 sm:left-auto sm:right-0 sm:w-full sm:max-w-sm sm:shadow-lg" aria-label="Global">
           <div class="flex h-16 items-center justify-between px-4 sm:px-6">
             <a href="#">
+              <!-- App icon -->
               <svg class="block h-8 w-auto text-primary-500" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M100 50C100 63.2608 94.7322 75.9785 85.3553 85.3553C75.9785 94.7322 63.2608 100 50 100C36.7392 100 24.0215 94.7322 14.6447 85.3553C5.26785 75.9785 2.00233e-06 63.2608 0 50L25 50C25 56.6304 27.6339 62.9893 32.3223 67.6777C37.0107 72.3661 43.3696 75 50 75C56.6304 75 62.9893 72.3661 67.6777 67.6777C72.3661 62.9893 75 56.6304 75 50H100Z"/>
                 <path d="M75 12.5C75 5.59644 80.5964 0 87.5 0V0C94.4036 0 100 5.59644 100 12.5V50H75V12.5Z"/>
@@ -179,7 +181,7 @@
           <div class="border-t border-gray-200 pt-4 pb-3">
             <div class="max-w-8xl mx-auto flex items-center px-4 sm:px-6">
               <div class="flex-shrink-0">
-                <%= gravatar(@current_user.email, "h-10 w-10 rounded-full") %>
+                <%= Gravatar.gravatar(@current_user.email, "h-10 w-10 rounded-full") %>
               </div>
               <div class="ml-3 min-w-0 flex-1">
                 <div class="truncate text-base font-medium text-gray-800"><%= @current_user.email %></div>

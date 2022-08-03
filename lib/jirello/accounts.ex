@@ -350,4 +350,8 @@ defmodule Jirello.Accounts do
       {:error, :user, changeset, _} -> {:error, changeset}
     end
   end
+
+  def count do
+    Repo.aggregate(User, :count, :id)
+  end
 end
