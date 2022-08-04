@@ -9,7 +9,7 @@ defmodule JirelloWeb.Router do
     plug :fetch_live_flash
     plug :put_root_layout, {JirelloWeb.LayoutView, :root}
     plug :protect_from_forgery
-    plug :put_secure_browser_headers
+    plug :put_secure_browser_headers, %{"content-security-policy" => "default-src 'unsafe-eval' 'self' www.gravatar.com http://unpkg.com"}
     plug :fetch_current_user
   end
 

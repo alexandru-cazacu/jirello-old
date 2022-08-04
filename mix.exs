@@ -7,6 +7,13 @@ defmodule Jirello.MixProject do
       version: "0.1.0",
       elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ],
       compilers: [:gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
@@ -51,8 +58,17 @@ defmodule Jirello.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
+      {:exgravatar, "~> 2.0"},
+
+      # Linting
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
-      {:exgravatar, "~> 2.0"}
+
+      # Security check
+      {:sobelow, "~> 0.11", only: [:dev, :test], runtime: true},
+      {:mix_audit, "~> 1.0", only: [:dev, :test], runtime: false},
+
+      # Test coverage
+      {:excoveralls, "~> 0.14", only: :test}
     ]
   end
 

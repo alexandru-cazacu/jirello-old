@@ -50,7 +50,7 @@ defmodule Jirello.Tasks do
   def list_tasks(criteria) when is_list(criteria) do
     query = from(t in Task)
 
-    Enum.reduce(criteria, query, fn
+    query = Enum.reduce(criteria, query, fn
       {:paginate, %{page: page, per_page: per_page}}, query ->
         from q in query,
           offset: ^((page - 1) * per_page),
@@ -59,7 +59,7 @@ defmodule Jirello.Tasks do
       {:sort, %{sort_by: sort_by, sort_order: sort_order}}, query ->
         from q in query, order_by: [{^sort_order, ^sort_by}]
     end)
-    |> Repo.all()
+    Repo.all(query)
   end
 
   @doc """

@@ -4,7 +4,7 @@
   </a>
 </h1>
 
-[![Test](https://github.com/alexandru-cazacu/jirello/actions/workflows/test.yaml/badge.svg?branch=master)](https://github.com/alexandru-cazacu/jirello/actions/workflows/test.yaml)
+[![CI](https://github.com/alexandru-cazacu/jirello/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/alexandru-cazacu/jirello/actions/workflows/ci.yaml)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://github.com/alexandru-cazacu/jirello/blob/master/LICENSE)
 
 To start your Phoenix server:
