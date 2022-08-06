@@ -354,4 +354,8 @@ defmodule Jirello.Accounts do
   def count do
     Repo.aggregate(User, :count, :id)
   end
+
+  def sessions(user, [_ | _] = contexts) do
+    Repo.all(UserToken.user_and_contexts_query(user, contexts))
+  end
 end

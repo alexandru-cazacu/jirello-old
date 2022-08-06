@@ -7,6 +7,10 @@ defmodule JirelloWeb.UserSettingsController do
   plug :assign_email_and_password_changesets
 
   def edit(conn, _params) do
+    user = conn.assigns.current_user
+    sessions = Accounts.sessions(user, ["session"])
+    conn = assign(conn, :sessions, sessions)
+
     render(conn, "edit.html")
   end
 

@@ -33,6 +33,44 @@
           </aside>
 
           <div class="divide-y divide-gray-200 lg:col-span-9">
+              <!-- Sessions -->
+              <div class="divide-y divide-gray-200">
+                <div class="py-6 px-4 sm:p-6 lg:pb-8">
+                  <h2 class="text-lg leading-6 font-medium text-gray-900">Sessions</h2>
+                  <p class="mt-1 text-sm text-gray-500 mb-6">List of active sessions.</p>
+
+                  <%= for session <- @sessions do %>
+                  <div class="bg-white shadow overflow-hidden sm:rounded-md">
+                    <ul role="list" class="divide-y divide-gray-200">
+                      <li>
+                        <a href="#" class="block hover:bg-gray-50">
+                          <div class="flex items-center px-4 py-4 sm:px-6">
+                            <div class="min-w-0 flex-1 flex items-center">
+                              <div class="flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                              </div>
+                              <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
+                                <div>
+                                  <p class="mt-2 flex items-center text-sm text-gray-500">Created <%=  session.inserted_at %></p>
+                                </div>
+                              </div>
+                            </div>
+                            <div>
+                              <button class="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50">
+                              Revoke session
+                              </button>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <% end %>
+                </div>
+              </div>
+
             <.form let={f} for={@email_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_email">
               <!-- Email section -->
               <div class="divide-y divide-gray-200">
