@@ -79,7 +79,25 @@ defmodule JirelloWeb.UserSettingsController do
   end
 
   defp add_sessions(conn) do
-    sessions = Accounts.sessions(conn.assigns.current_user, ["session"])
+    sessions = Accounts.list_sessions(conn.assigns.current_user, ["session"])
+    user_token = get_session(conn, :user_token)
+
+    sessions =
+      Enum.map(sessions, fn session ->
+        %{session | is_current: session.token == user_token}
+      end)
+
     assign(conn, :sessions, sessions)
+  end
+
+  def delete(conn, %{"session_id" => session_id}) do
+    user_token = Accounts.get_session!(session_id)
+    {:ok, _user_token} = Accounts.revoke_session(user_token)
+
+    conn
+    |> put_flash(:info, "Session revoked successfully.")
+    |> redirect(to: Routes.user_settings_path(conn, :edit))
+
+    conn
   end
 end

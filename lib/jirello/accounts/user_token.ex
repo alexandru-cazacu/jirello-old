@@ -19,6 +19,7 @@ defmodule Jirello.Accounts.UserToken do
     field :token, :binary
     field :context, :string
     field :sent_to, :string
+    field :is_current, :boolean, virtual: true
     belongs_to :user, Jirello.Accounts.User
 
     timestamps(updated_at: false)

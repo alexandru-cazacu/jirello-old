@@ -355,7 +355,53 @@ defmodule Jirello.Accounts do
     Repo.aggregate(User, :count, :id)
   end
 
-  def sessions(user, [_ | _] = contexts) do
-    Repo.all(UserToken.user_and_contexts_query(user, contexts))
+  @doc """
+  Returns the list of sessions.
+
+  ## Examples
+
+      iex> list_sessions(user)
+      [%UserToken{}, ...]
+
+  """
+  def list_sessions(%User{} = user, [_ | _] = contexts) do
+    user
+    |> UserToken.user_and_contexts_query(contexts)
+    |> Repo.all()
+    |> Repo.preload(:user)
+  end
+
+  @doc """
+  Gets a single session.
+
+  Raises `Ecto.NoResultsError` if the UserToken does not exist.
+
+  ## Examples
+
+      iex> get_session!(123)
+      %UserToken{}
+
+      iex> get_session!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_session!(id) do
+    Repo.get!(UserToken, id)
+  end
+
+  @doc """
+  Revokes a session.
+
+  ## Examples
+
+      iex> revoke_session(user_token)
+      {:ok, %UserToken{}}
+
+      iex> revoke_session(user_token)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def revoke_session(%UserToken{} = user_token) do
+    Repo.delete(user_token)
   end
 end
