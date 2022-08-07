@@ -5,6 +5,79 @@
       <p class="mt-2 text-sm text-gray-700">A list of all the tasks not connected to any project.</p>
     </div>
     <div class="flex flex-row justify-end">
+
+
+
+      <div class="relative inline-block text-left" x-data="{ _showFilters: false }">
+        <div>
+          <button
+            x-on:click="_showFilters = !_showFilters"
+            x-on:click.outside="_showFilters = false"
+            type="button"
+            class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-2 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-primary-500"
+            id="menu-button"
+            aria-expanded="true"
+            aria-haspopup="true">
+            <!-- Heroicon name: solid/filter -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Dropdown menu -->
+        <div
+          x-cloak
+          x-show="_showFilters"
+          x-transition:enter="transition ease-out duration-100"
+          x-transition:enter-start="transform opacity-0 scale-95"
+          x-transition:enter-end="transform opacity-100 scale-100"
+          x-transition:leave="transition ease-in duration-75"
+          x-transition:leave-start="transform opacity-100 scale-100"
+          x-transition:leave-end="transform opacity-0 scale-95"
+          style="display:none;"
+          class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none z-50"
+          role="menu"
+          aria-orientation="vertical"
+          aria-labelledby="menu-button"
+          tabindex="-1">
+          <div class="py-1" role="none">
+            <p class="px-4 py-1 text-sm text-gray-500">Status</p>
+            <div class="text-gray-700 group flex items-center px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-6">
+              <div class="relative flex items-start">
+                <div class="flex items-center h-5">
+                  <input id="comments" aria-describedby="comments-description" name="comments" type="checkbox" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-gray-300 rounded">
+                </div>
+              </div>
+              <span class="ml-3 block truncate">
+                <span class="tw-badge-red">Todo</span>
+              </span>
+            </div>
+            <div class="text-gray-700 group flex items-center px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-6">
+              <div class="relative flex items-start">
+                <div class="flex items-center h-5">
+                  <input id="comments" aria-describedby="comments-description" name="comments" type="checkbox" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-gray-300 rounded">
+                </div>
+              </div>
+              <span class="ml-3 block truncate">
+                <span class="tw-badge-yellow">Doing</span>
+              </span>
+            </div>
+            <div class="text-gray-700 group flex items-center px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-6">
+              <div class="relative flex items-start">
+                <div class="flex items-center h-5">
+                  <input id="comments" aria-describedby="comments-description" name="comments" type="checkbox" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-gray-300 rounded">
+                </div>
+              </div>
+              <span class="ml-3 block truncate">
+                <span class="tw-badge-green">Done</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
       <div class="hidden ml-6 bg-gray-100 p-0.5 rounded-lg items-center sm:flex">
         <%# <button type="button" class="p-1.5 rounded-md text-gray-400 hover:bg-white hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500">
           <!-- Heroicon name: solid/view-list -->
