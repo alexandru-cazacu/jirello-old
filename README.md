@@ -1,6 +1,6 @@
 <h1>
   <a href="https://jirello.com/">
-    <img src="./.github/media/jirello_banner_512.png" width="400" alt="Jirello" />
+    <img src="./.github/media/jirello_logo.png" width="128" alt="Jirello" />
   </a>
 </h1>
 
