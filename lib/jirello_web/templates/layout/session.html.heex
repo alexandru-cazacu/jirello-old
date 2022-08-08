@@ -258,9 +258,7 @@
       <!-- Primary column -->
       <section aria-labelledby="primary-heading" class="flex h-full min-w-0 flex-1 flex-col overflow-y-auto lg:order-last">
         <h1 id="primary-heading" class="sr-only">Home</h1>
-          <p class="TODO" role="alert"><%= get_flash(@conn, :info) %></p>
-          <p class="TODO" role="alert"><%= get_flash(@conn, :error) %></p>
-          <%= @inner_content %>
+        <%= @inner_content %>
       </section>
 
       <!-- Secondary column (hidden on smaller screens) -->

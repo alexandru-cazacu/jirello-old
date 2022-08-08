@@ -1,5 +1,176 @@
-<h1>Edit Project</h1>
+<!-- Breadcrumb -->
+<nav class="hidden bg-white border-b border-gray-200 lg:flex" aria-label="Breadcrumb">
+  <ol role="list" class="max-w-screen-xl w-full mx-auto px-4 flex space-x-4 sm:px-6 lg:px-8">
+    <li class="flex">
+      <div class="flex items-center">
+        <%= link to: Routes.live_path(@conn, JirelloWeb.TasksLive), class: "text-gray-400 hover:text-gray-500" do %>
+          <!-- Heroicon name: solid/home -->
+          <svg class="flex-shrink-0 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+          </svg>
+          <span class="sr-only">Home</span>
+        <% end %>
+      </div>
+    </li>
 
-<%= render "form.html", Map.put(assigns, :action, Routes.project_path(@conn, :update, @project)) %>
+    <li class="flex">
+      <div class="flex items-center">
+        <svg class="flex-shrink-0 w-6 h-full text-gray-200" preserveAspectRatio="none" viewBox="0 0 24 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
+        </svg>
+        <%= link "Projects", to: Routes.project_path(@conn, :index), class: "ml-4 text-sm font-medium text-gray-500 hover:text-gray-700" %>
+      </div>
+    </li>
 
-<span><%= link "Back", to: Routes.project_path(@conn, :index) %></span>
+    <li class="flex">
+      <div class="flex items-center">
+        <svg class="flex-shrink-0 w-6 h-full text-gray-200" preserveAspectRatio="none" viewBox="0 0 24 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
+        </svg>
+        <%= link "New Project", to: Routes.project_path(@conn, :new), aria_current: "page", class: "ml-4 text-sm font-medium text-gray-500 hover:text-gray-700" %>
+      </div>
+    </li>
+  </ol>
+</nav>
+
+<main class="max-w-lg mx-auto pt-10 pb-12 px-4 lg:pb-16">
+  <.form let={f} for={@changeset} action={Routes.project_path(@conn, :update, @project)}>
+    <div class="space-y-6">
+      <div>
+        <h1 class="text-lg leading-6 font-medium text-gray-900">Edit Project</h1>
+      </div>
+
+      <%= if @changeset.action do %>
+        <div class="rounded-md bg-red-50 p-4 m-4" role="alert">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                <!-- Heroicon name: solid/x-circle -->
+                <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                </svg>
+                </div>
+                <div class="ml-3">
+                <h3 class="text-sm text-red-800">Oops, something went wrong! Please check the errors below.</h3>
+                </div>
+            </div>
+        </div>
+      <% end %>
+
+      <div>
+        <%= label f, :title, class: "block text-sm font-medium text-gray-700" %>
+        <div class="mt-1">
+          <%= text_input f, :title,
+            placeholder: "Project name",
+            required: true,
+            class: "block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm border-gray-300 rounded-md" %>
+        </div>
+        <%= error_tag f, :title %>
+      </div>
+
+      <%# <div>
+        <label for="description" class="block text-sm font-medium text-gray-700"> Description </label>
+        <div class="mt-1">
+          <textarea id="description" name="description" rows="3" class="block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm border border-gray-300 rounded-md"></textarea>
+        </div>
+      </div> %>
+
+      <%# <div class="space-y-2">
+        <div class="space-y-1">
+          <label for="add-team-members" class="block text-sm font-medium text-gray-700"> Add Team Members </label>
+          <p id="add-team-members-helper" class="sr-only">Search by email address</p>
+          <div class="flex">
+            <div class="flex-grow">
+              <input type="text" name="add-team-members" id="add-team-members" class="block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm border-gray-300 rounded-md" placeholder="Email address" aria-describedby="add-team-members-helper">
+            </div>
+            <span class="ml-3">
+              <button type="button" class="bg-white inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+                <!-- Heroicon name: solid/plus -->
+                <svg class="-ml-2 mr-1 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                </svg>
+                <span>Add</span>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="border-b border-gray-200">
+          <ul role="list" class="divide-y divide-gray-200">
+            <li class="py-4 flex">
+              <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1513910367299-bce8d8a0ebf6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+              <div class="ml-3 flex flex-col">
+                <span class="text-sm font-medium text-gray-900">Calvin Hawkins</span>
+                <span class="text-sm text-gray-500">calvin.hawkins@example.com</span>
+              </div>
+            </li>
+
+            <li class="py-4 flex">
+              <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+              <div class="ml-3 flex flex-col">
+                <span class="text-sm font-medium text-gray-900">Bessie Richards</span>
+                <span class="text-sm text-gray-500">bessie.richards@example.com</span>
+              </div>
+            </li>
+
+            <li class="py-4 flex">
+              <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+              <div class="ml-3 flex flex-col">
+                <span class="text-sm font-medium text-gray-900">Floyd Black</span>
+                <span class="text-sm text-gray-500">floyd.black@example.com</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div> %>
+
+      <%# <fieldset>
+        <legend class="text-sm font-medium text-gray-900">Privacy</legend>
+
+        <div class="mt-1 bg-white rounded-md shadow-sm -space-y-px">
+          <!-- Checked: "bg-primary-50 border-primary-200 z-10", Not Checked: "border-gray-200" -->
+          <label class="rounded-tl-md rounded-tr-md relative border p-4 flex cursor-pointer focus:outline-none">
+            <input type="radio" name="privacy-setting" value="Public access" class="h-4 w-4 mt-0.5 cursor-pointer shrink-0 text-primary-600 border-gray-300 focus:ring-primary-500" aria-labelledby="privacy-setting-0-label" aria-describedby="privacy-setting-0-description">
+            <span class="ml-3 flex flex-col">
+              <!-- Checked: "text-primary-900", Not Checked: "text-gray-900" -->
+              <span id="privacy-setting-0-label" class="block text-sm font-medium"> Public access </span>
+              <!-- Checked: "text-primary-700", Not Checked: "text-gray-500" -->
+              <span id="privacy-setting-0-description" class="block text-sm"> This project would be available to anyone who has the link </span>
+            </span>
+          </label>
+
+          <!-- Checked: "bg-primary-50 border-primary-200 z-10", Not Checked: "border-gray-200" -->
+          <label class="relative border p-4 flex cursor-pointer focus:outline-none">
+            <input type="radio" name="privacy-setting" value="Private to Project Members" class="h-4 w-4 mt-0.5 cursor-pointer shrink-0 text-primary-600 border-gray-300 focus:ring-primary-500" aria-labelledby="privacy-setting-1-label" aria-describedby="privacy-setting-1-description">
+            <span class="ml-3 flex flex-col">
+              <!-- Checked: "text-primary-900", Not Checked: "text-gray-900" -->
+              <span id="privacy-setting-1-label" class="block text-sm font-medium"> Private to Project Members </span>
+              <!-- Checked: "text-primary-700", Not Checked: "text-gray-500" -->
+              <span id="privacy-setting-1-description" class="block text-sm"> Only members of this project would be able to access </span>
+            </span>
+          </label>
+
+          <!-- Checked: "bg-primary-50 border-primary-200 z-10", Not Checked: "border-gray-200" -->
+          <label class="rounded-bl-md rounded-br-md relative border p-4 flex cursor-pointer focus:outline-none">
+            <input type="radio" name="privacy-setting" value="Private to you" class="h-4 w-4 mt-0.5 cursor-pointer shrink-0 text-primary-600 border-gray-300 focus:ring-primary-500" aria-labelledby="privacy-setting-2-label" aria-describedby="privacy-setting-2-description">
+            <span class="ml-3 flex flex-col">
+              <!-- Checked: "text-primary-900", Not Checked: "text-gray-900" -->
+              <span id="privacy-setting-2-label" class="block text-sm font-medium"> Private to you </span>
+              <!-- Checked: "text-primary-700", Not Checked: "text-gray-500" -->
+              <span id="privacy-setting-2-description" class="block text-sm"> You are the only one able to access this project </span>
+            </span>
+          </label>
+        </div>
+      </fieldset> %>
+
+      <%# <div>
+        <label for="tags" class="block text-sm font-medium text-gray-700"> Tags </label>
+        <input type="text" name="tags" id="tags" class="mt-1 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm border-gray-300 rounded-md">
+      </div> %>
+
+      <div class="flex justify-end">
+        <%= link "Back", to: Routes.project_path(@conn, :index), class: "tw-button-secondary" %>
+        <%= submit "Save", class: "tw-button ml-2" %>
+      </div>
+    </div>
+  </.form>
+</main>

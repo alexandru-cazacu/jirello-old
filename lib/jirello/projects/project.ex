@@ -15,5 +15,6 @@ defmodule Jirello.Projects.Project do
     project
     |> cast(attrs, [:title])
     |> validate_required([:title])
+    |> validate_length(:title, min: 2)
   end
 end

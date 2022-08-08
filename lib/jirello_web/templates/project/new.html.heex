@@ -3,13 +3,13 @@
   <ol role="list" class="max-w-screen-xl w-full mx-auto px-4 flex space-x-4 sm:px-6 lg:px-8">
     <li class="flex">
       <div class="flex items-center">
-        <a href="#" class="text-gray-400 hover:text-gray-500">
+        <%= link to: Routes.live_path(@conn, JirelloWeb.TasksLive), class: "text-gray-400 hover:text-gray-500" do %>
           <!-- Heroicon name: solid/home -->
           <svg class="flex-shrink-0 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
           </svg>
           <span class="sr-only">Home</span>
-        </a>
+        <% end %>
       </div>
     </li>
 
@@ -18,7 +18,7 @@
         <svg class="flex-shrink-0 w-6 h-full text-gray-200" preserveAspectRatio="none" viewBox="0 0 24 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
         </svg>
-        <a href="#" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Projects</a>
+        <%= link "Projects", to: Routes.project_path(@conn, :index), class: "ml-4 text-sm font-medium text-gray-500 hover:text-gray-700" %>
       </div>
     </li>
 
@@ -27,35 +27,55 @@
         <svg class="flex-shrink-0 w-6 h-full text-gray-200" preserveAspectRatio="none" viewBox="0 0 24 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
         </svg>
-        <a href="#" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700" aria-current="page">Project Nero</a>
+        <%= link "New Project", to: Routes.project_path(@conn, :new), aria_current: "page", class: "ml-4 text-sm font-medium text-gray-500 hover:text-gray-700" %>
       </div>
     </li>
   </ol>
 </nav>
 
 <main class="max-w-lg mx-auto pt-10 pb-12 px-4 lg:pb-16">
-  <form>
+  <.form let={f} for={@changeset} action={Routes.project_path(@conn, :create)}>
     <div class="space-y-6">
       <div>
-        <h1 class="text-lg leading-6 font-medium text-gray-900">Project Settings</h1>
+        <h1 class="text-lg leading-6 font-medium text-gray-900">New Project</h1>
         <p class="mt-1 text-sm text-gray-500">Let’s get started by filling in the information below to create your new project.</p>
       </div>
 
-      <div>
-        <label for="project-name" class="block text-sm font-medium text-gray-700"> Project Name </label>
-        <div class="mt-1">
-          <input type="text" name="project-name" id="project-name" class="block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm border-gray-300 rounded-md" value="Project Nero">
+      <%= if @changeset.action do %>
+        <div class="rounded-md bg-red-50 p-4 m-4" role="alert">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                <!-- Heroicon name: solid/x-circle -->
+                <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                </svg>
+                </div>
+                <div class="ml-3">
+                <h3 class="text-sm text-red-800">Oops, something went wrong! Please check the errors below.</h3>
+                </div>
+            </div>
         </div>
-      </div>
+      <% end %>
 
       <div>
+        <%= label f, :title, class: "block text-sm font-medium text-gray-700" %>
+        <div class="mt-1">
+          <%= text_input f, :title,
+            placeholder: "Project name",
+            required: true,
+            class: "block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm border-gray-300 rounded-md" %>
+        </div>
+        <%= error_tag f, :title %>
+      </div>
+
+      <%# <div>
         <label for="description" class="block text-sm font-medium text-gray-700"> Description </label>
         <div class="mt-1">
           <textarea id="description" name="description" rows="3" class="block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm border border-gray-300 rounded-md"></textarea>
         </div>
-      </div>
+      </div> %>
 
-      <div class="space-y-2">
+      <%# <div class="space-y-2">
         <div class="space-y-1">
           <label for="add-team-members" class="block text-sm font-medium text-gray-700"> Add Team Members </label>
           <p id="add-team-members-helper" class="sr-only">Search by email address</p>
@@ -102,9 +122,9 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div> %>
 
-      <fieldset>
+      <%# <fieldset>
         <legend class="text-sm font-medium text-gray-900">Privacy</legend>
 
         <div class="mt-1 bg-white rounded-md shadow-sm -space-y-px">
@@ -141,23 +161,17 @@
             </span>
           </label>
         </div>
-      </fieldset>
+      </fieldset> %>
 
-      <div>
+      <%# <div>
         <label for="tags" class="block text-sm font-medium text-gray-700"> Tags </label>
         <input type="text" name="tags" id="tags" class="mt-1 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm border-gray-300 rounded-md">
-      </div>
+      </div> %>
 
       <div class="flex justify-end">
-        <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">Cancel</button>
-        <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">Create this project</button>
+        <%= link "Back", to: Routes.project_path(@conn, :index), class: "tw-button-secondary" %>
+        <%= submit "Create project", class: "tw-button ml-2" %>
       </div>
     </div>
-  </form>
+  </.form>
 </main>
-
-<h1>New Project</h1>
-
-<%= render "form.html", Map.put(assigns, :action, Routes.project_path(@conn, :create)) %>
-
-<span><%= link "Back", to: Routes.project_path(@conn, :index) %></span>
