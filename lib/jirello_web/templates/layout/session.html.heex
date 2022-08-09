@@ -18,7 +18,7 @@
   <header class="relative flex h-16 flex-shrink-0 items-center bg-white">
     <!-- Logo area -->
     <div class="absolute inset-y-0 left-0 md:static md:flex-shrink-0">
-      <a href="#" class="flex h-16 w-16 items-center justify-center bg-primary-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-600 md:w-20">
+      <%= link to: "/app", class: "flex h-16 w-16 items-center justify-center bg-primary-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-600 md:w-20" do %>
         <!-- App icon -->
         <svg class="h-8 w-auto text-white" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path d="M100 50C100 63.2608 94.7322 75.9785 85.3553 85.3553C75.9785 94.7322 63.2608 100 50 100C36.7392 100 24.0215 94.7322 14.6447 85.3553C5.26785 75.9785 2.00233e-06 63.2608 0 50L25 50C25 56.6304 27.6339 62.9893 32.3223 67.6777C37.0107 72.3661 43.3696 75 50 75C56.6304 75 62.9893 72.3661 67.6777 67.6777C72.3661 62.9893 75 56.6304 75 50H100Z"/>
@@ -26,7 +26,7 @@
             <path d="M0 47.5C0 40.5964 5.59644 35 12.5 35V35C19.4036 35 25 40.5964 25 47.5V50H0V47.5Z"/>
             <circle cx="50" cy="50" r="15"/>
         </svg>
-      </a>
+      <% end %>
     </div>
 
     <!-- Menu button area -->
