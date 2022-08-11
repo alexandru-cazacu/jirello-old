@@ -1,0 +1,8 @@
+{
+    "conventionalCommits.scopes": [
+        "Tasks",
+        "Settings",
+        "Projects",
+        "Home"
+    ]
+}
