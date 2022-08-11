@@ -65,7 +65,7 @@ defmodule Jirello.MixProject do
 
       # Security check
       {:sobelow, "~> 0.11", only: [:dev, :test], runtime: true},
-      {:mix_audit, "~> 1.0", only: [:dev, :test], runtime: false},
+      {:mix_audit, "~> 2.0", only: [:dev, :test], runtime: false},
 
       # Test coverage
       {:excoveralls, "~> 0.14", only: :test}
