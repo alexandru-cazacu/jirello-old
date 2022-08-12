@@ -4,12 +4,29 @@ defmodule JirelloWeb.UserSettingsController do
   alias Jirello.Accounts
   alias JirelloWeb.UserAuth
 
-  plug :assign_email_and_password_changesets
+  plug :assign_changesets
 
   def edit(conn, _params) do
     conn
     |> add_sessions()
     |> render("edit.html")
+  end
+
+  def update(conn, %{"action" => "update_profile"} = params) do
+    %{"user" => user_params} = params
+    user = conn.assigns.current_user
+
+    case Accounts.update_user_profile(user, user_params) do
+      {:ok, _user} ->
+        conn
+        |> put_flash(:info, "Profile updated successfully.")
+        |> redirect(to: Routes.user_settings_path(conn, :edit))
+
+      {:error, changeset} ->
+        conn
+        |> add_sessions()
+        |> render("edit.html", profile_changeset: changeset)
+    end
   end
 
   def update(conn, %{"action" => "update_email"} = params) do
@@ -70,12 +87,13 @@ defmodule JirelloWeb.UserSettingsController do
     end
   end
 
-  defp assign_email_and_password_changesets(conn, _opts) do
+  defp assign_changesets(conn, _opts) do
     user = conn.assigns.current_user
 
     conn
     |> assign(:email_changeset, Accounts.change_user_email(user))
     |> assign(:password_changeset, Accounts.change_user_password(user))
+    |> assign(:profile_changeset, Accounts.change_user_profile(user))
   end
 
   defp add_sessions(conn) do

@@ -10,6 +10,9 @@ defmodule Jirello.Accounts.User do
     field :hashed_password, :string, redact: true
     field :confirmed_at, :naive_datetime
 
+    field :first_name, :string
+    field :last_name, :string
+
     timestamps()
   end
 
@@ -109,6 +112,14 @@ defmodule Jirello.Accounts.User do
   def confirm_changeset(user) do
     now = NaiveDateTime.utc_now() |> NaiveDateTime.truncate(:second)
     change(user, confirmed_at: now)
+  end
+
+  @doc """
+  A user changeset for changing the profile.
+  """
+  def profile_changeset(user, attrs) do
+    user
+    |> cast(attrs, [:first_name, :last_name])
   end
 
   @doc """

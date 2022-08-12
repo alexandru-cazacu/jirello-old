@@ -14,8 +14,16 @@
           <aside class="py-6 lg:col-span-3">
             <nav class="space-y-1">
               <a href="#" class="bg-primary-50 border-primary-500 text-primary-700 hover:bg-primary-50 hover:text-primary-700 group border-l-4 px-3 py-2 flex items-center text-sm font-medium" aria-current="page">
-                <!-- Heroicon name: outline/cog -->
+                <!-- Heroicon name: outline/user-circle -->
                 <svg class="text-primary-500 group-hover:text-primary-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="truncate"> Profile </span>
+              </a>
+
+              <a href="#" class="border-transparent text-gray-900 hover:bg-gray-50 hover:text-gray-900 group border-l-4 px-3 py-2 flex items-center text-sm font-medium">
+                <!-- Heroicon name: outline/cog -->
+                <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
@@ -33,6 +41,53 @@
           </aside>
 
           <div class="divide-y divide-gray-200 lg:col-span-9">
+              <.form let={f} for={@profile_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_profile">
+                <!-- Profile section -->
+                <div class="divide-y divide-gray-200">
+                  <div class="py-6 px-4 sm:p-6 lg:pb-8">
+                    <h2 class="text-lg leading-6 font-medium text-gray-900">Profile</h2>
+
+                    <%= if @profile_changeset.action do %>
+                      <div class="rounded-md bg-red-50 p-4 mt-4" role="alert">
+                        <div class="flex">
+                          <div class="flex-shrink-0">
+                            <!-- Heroicon name: solid/x-circle -->
+                            <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                            </svg>
+                          </div>
+                          <div class="ml-3">
+                            <h3 class="text-sm text-red-800">Oops, something went wrong! Please check the errors below.</h3>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+
+                    <%= hidden_input f, :action, name: "action", value: "update_profile" %>
+
+                    <div class="mt-6 grid grid-cols-12 gap-6">
+                      <div class="col-span-12 sm:col-span-6">
+                        <%= label f, :first_name, class: "block text-sm font-medium text-gray-700" %>
+                        <%= text_input f, :first_name,
+                          class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm" %>
+                        <%= error_tag f, :first_name %>
+                      </div>
+
+                      <div class="col-span-12 sm:col-span-6">
+                        <%= label f, :last_name, class: "block text-sm font-medium text-gray-700" %>
+                        <%= text_input f, :last_name,
+                          class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm" %>
+                        <%= error_tag f, :last_name %>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="py-4 px-4 flex justify-end sm:px-6">
+                    <%= submit "Update Profile", class: "ml-5 bg-primary-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500" %>
+                  </div>
+                </div>
+              </.form>
+
               <!-- Sessions -->
               <div class="divide-y divide-gray-200">
                 <div class="py-6 px-4 sm:p-6 lg:pb-8">
