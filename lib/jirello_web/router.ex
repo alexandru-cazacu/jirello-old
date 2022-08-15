@@ -12,7 +12,7 @@ defmodule JirelloWeb.Router do
 
     plug :put_secure_browser_headers, %{
       "content-security-policy" =>
-        "default-src 'self' 'unsafe-eval' 'unsafe-inline' http://unpkg.com https://cdn.jsdelivr.net; img-src data: https://ghchart.rshah.org www.gravatar.com"
+        "default-src 'self' 'unsafe-eval' 'unsafe-inline' http://unpkg.com https://cdn.jsdelivr.net; img-src 'self' data: https://ghchart.rshah.org www.gravatar.com"
     }
 
     plug :fetch_current_user
