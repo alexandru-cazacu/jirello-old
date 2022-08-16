@@ -8,6 +8,7 @@ defmodule JirelloWeb.UserSettingsController do
 
   def edit(conn, _params) do
     conn
+    |> assign(:page_title, "Settings")
     |> add_sessions()
     |> render("edit.html")
   end
