@@ -6,7 +6,7 @@ A newer version with a different stack can be found [here](https://github.com/al
   </a>
 </h1>
 
-[![CI](https://github.com/alexandru-cazacu/jirello/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/alexandru-cazacu/jirello/actions/workflows/ci.yaml)
+[![CI](https://github.com/alexandru-cazacu/jirello/actions/workflows/ci.yml/badge.svg)](https://github.com/alexandru-cazacu/jirello/actions/workflows/ci.yml)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://github.com/alexandru-cazacu/jirello/blob/master/LICENSE)
 
 ![Screenshot](./.github/media/screen-01.png)
