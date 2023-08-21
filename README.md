@@ -1,3 +1,5 @@
+A newer version with a different stack can be found [here](https://github.com/alexandru-cazacu/jirello).
+
 <h1>
   <a href="https://jirello.com/">
     <img src="./.github/media/jirello_logo.png" width="128" alt="Jirello" />
