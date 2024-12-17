@@ -1,0 +1,36 @@
+services:
+  jirello:
+    container_name: jirello
+    build: 
+      context: .
+      dockerfile: ./dev.Dockerfile
+      args:
+        USER_ID: "${UID:-1000}"
+        GROUP_ID: "${GID:-1000}"
+    ports:
+      - "4005:4000"
+      - "5005:5000"
+    links:
+      - "postgres"
+    depends_on:
+      - postgres
+    volumes:
+      - "./:/code"
+  postgres:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=jirello
+      - POSTGRES_PASSWORD=jirello
+
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "postgres" ]
+      interval: 2s
+      timeout: 3s
+      retries: 3
+    ports:
+      - '7434:5432'
+    volumes: 
+      - db:/var/lib/postgresql/data
+volumes:
+  db:
